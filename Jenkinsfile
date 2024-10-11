@@ -4,14 +4,14 @@ pipeline {
     stages {
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t ecomove-front-image ./'
+                sh 'docker build -t ecomovefront-image ./'
             }
         }
 
         stage('Run Docker Container') {
             steps {
                 sh '''
-                    docker run -d --name ecomove-front-app -p 4200:80 ecomove-front-image
+                    docker run -d --name ecomovefront-app -p 4200:80 ecomovefront-image
                     docker ps
                 '''
             }
