@@ -4,14 +4,14 @@ pipeline {
     stages {
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t frontend-image ./'
+                sh 'docker build -t frontendimg ./'
             }
         }
 
         stage('Run Docker Container') {
             steps {
                 sh '''
-                    docker run -d --name frontend-app -p 4200:80 frontend-image
+                    docker run -d --name frontendapp -p 5100:80 frontendimg
                     docker ps
                 '''
             }
